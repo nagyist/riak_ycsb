@@ -1,0 +1,7 @@
+riak_cluster_hosts=127.0.0.1:10018, 127.0.0.1:10028, 127.0.0.1:10038, 127.0.0.1:10048, 127.0.0.1:10058, 192.168.87.141:10068
+riak_pool_enabled=true
+riak_pool_total_max_connection=50
+riak_pool_idle_connection_ttl_millis=1000
+riak_pool_initial_pool_size=5
+riak_pool_request_timeout_millis=1000
+riak_pool_connection_timeout_millis=1000

@@ -1,0 +1,30 @@
+# https://gist.github.com/metadave/3342251#file-riak_ycsb-md
+
+Dependencies: Maven, Java 1.6+
+#+BEGIN_SRC sh 
+git clone https://github.com/metadave/YCSB.git
+cd YCSB
+mvn clean package
+#+END_SRC
+
+See if the build worked using the "basic" driver (ie not Riak)
+#+BEGIN_SRC sh 
+./bin/ycsb load basic -P workloads/workloada
+./bin/ycsb run basic -P workloads/workloada
+#+END_SRC
+
+#+BEGIN_QUOTE 
+riak_cluster_hosts=127.0.0.1:10017, 192.168.1.6:10027, 192.168.1.7:10037
+riak_pool_enabled=true
+riak_pool_total_max_connection=50
+riak_pool_idle_connection_ttl_millis=1000
+riak_pool_initial_pool_size=5
+riak_pool_request_timeout_millis=1000
+riak_pool_connection_timeout_millis=1000
+#+END_QUOTE
+
+To run the workload with riak
+#+BEGIN_SRC sh 
+bin/ycsb load riak-1.3 -P workloads/workloada -P ./path/to/riak.props
+bin/ycsb run riak-1.3 -P workloads/workloada -P ./path/to/riak.props
+#+END_SRC
